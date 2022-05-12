@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	<title><%=((typeof titulo === "undefined" || !titulo) ? "Projeto" : (titulo + " - Projeto")) %></title>
+	
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	
+	<!-- Bootstrap 4 -->
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="/public/css/style.css" />
+</head>
+<body>
+
+	<!-- https://getbootstrap.com/docs/4.6/components/navbar/ -->
+	<nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+		<a class="navbar-brand" href="#">
+			<b>Filcrit</b>		<!-- Conteudo 1 da navbar (Home)-->
+		</a>
+		
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    	<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+		        	<a class="nav-link" href="#">
+	    	    		Filmes		<!-- Conteudo 2 da navbar-->
+	    	    	</a>
+	    	    </li>
+	    
+	    		<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+						Categorias	<!-- Conteudo 3 da navbar para abrir o dropdown-->
+					</a>
+				
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">
+							Ação	<!-- Conteudo 4 da navbar com dropdown-->
+						</a>
+			
+						<a class="dropdown-item" href="#">
+							Terror	<!-- Conteudo 5 da navbar com dropdown-->
+						</a>
+	
+						<a class="dropdown-item" href="#">
+							Aventura	<!-- Conteudo 5 da navbar com dropdown-->
+						</a>
+	
+						<a class="dropdown-item" href="#">
+								<!-- Conteudo 5 da navbar com dropdown-->
+						</a>
+						
+						<a class="dropdown-item" href="#">
+							Terror	<!-- Conteudo 5 da navbar com dropdown-->
+						</a>
+						
+						<div class="dropdown-divider"></div> <!-- Divisor da navbar no dropdown-->
+	        	
+	        	
+						<a class="dropdown-item" href="#">
+	        				Todos os genêros	<!-- Conteudo 6 da navbar com dropdown -->
+	        			</a>
+					</div>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link disabled">
+						Disabled <!-- Conteudo desabilitado da navbar -->
+	    			</a>
+	    		</li>
+	    	</ul>
+	    
+	    	<form class="form-inline my-2 my-lg-0">
+	    		<input class="form-control mr-sm-2" type="search" placeholder="Filmes, categorias, atores..." aria-label="Filmes, categorias, atores...">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+						Search	<!-- Conteudo 8 da navbar (search bar) -->
+					</button>
+			</form>
+		</div>
+	</nav>
+	<div class="fake-navbar"></div>
+
+	<%- body %>
+
+	<script>
+		let navbar = document.getElementById("navbar");
+		let navbarPreenchida = false;
+
+		window.onscroll = function () {
+			if (window.scrollY > 0) {
+				if (!navbarPreenchida) {
+					navbarPreenchida = true;
+					navbar.classList.add("preenchida");
+				}
+			} else {
+				if (navbarPreenchida) {
+					navbarPreenchida = false;
+					navbar.classList.remove("preenchida");
+				}
+			}
+		};
+	</script>
+</body>
+</html>
